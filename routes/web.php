@@ -20,3 +20,15 @@ Route::get('/', function () {
 Route::get('login', function () {
     return view('layouts.pages.auth.login');
 })->name('login');
+
+Route::get('sign-up', function() {
+    return view('layouts.pages.auth.sign-up');
+});
+
+Route::get('discussions', function() {
+    return view('layouts.pages.discussions.index');
+});
+
+Route::get('discussions/lorem', function() {
+    return view('layouts.pages.discussions.show');
+});
