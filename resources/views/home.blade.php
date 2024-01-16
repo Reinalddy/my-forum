@@ -6,8 +6,8 @@
             <div class="col-12 col-lg-6">
                 <h1>The Anime <br /> Comunity Forum</h1>
                 <p class="mb-4">Empowering the laravel cominity to connect, share and learn</p>
-                <a href="#" class="btn btn-primary me-2 mb-2 mb-lg-0">Sign up</a>
-                <a href="#" class="btn btn-secondary mb-2 mb-lg-0">Join Discussions</a>
+                <a href="{{ route('auth.sign-up.show') }}" class="btn btn-primary me-2 mb-2 mb-lg-0">Sign up</a>
+                <a href="{{ route('discussions.index') }}" class="btn btn-secondary mb-2 mb-lg-0">Join Discussions</a>
             </div>
             <div class="col-12 col-lg-6 h-315px order-first order-lg-last mb-3 mb-lg-0">
                 <img class="hero-image float-lg-end" src="{{ url('assets/images/hero.png') }}" alt="">
@@ -131,8 +131,8 @@
         <h2>Ready To Contribute</h2>
         <p class="mb-4">Want to make a big impact?</p>
         <div class="text-center">
-            <a href="#" class="btn btn-primary me-2 mb-2 mb-lg-0">Sign up</a>
-            <a href="#" class="btn btn-secondary mb-2 mb-lg-0">Join Discussions</a>
+            <a href="{{ route('auth.sign-up.show') }}" class="btn btn-primary me-2 mb-2 mb-lg-0">Sign up</a>
+            <a href="{{ route('discussions.index') }}" class="btn btn-secondary mb-2 mb-lg-0">Join Discussions</a>
         </div>
     </section>
     
