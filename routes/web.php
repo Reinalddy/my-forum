@@ -36,3 +36,15 @@ Route::get('discussions/lorem', function() {
 Route::get('discussions/create', function() {
     return view('layouts.pages.discussions.form');
 })->name('discussions.create');
+
+Route::get('answers/1', function() {
+    return view('layouts.pages.answers.form');
+})->name('answers.edit');
+
+Route::get('users/reinalddy', function() {
+    return view('layouts.pages.users.show');
+})->name('users.show');
+
+Route::get('users/reinalddy/edit', function() {
+    return view('layouts.pages.users.form');
+})->name('users.show');
