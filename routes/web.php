@@ -47,4 +47,4 @@ Route::get('users/reinalddy', function() {
 
 Route::get('users/reinalddy/edit', function() {
     return view('layouts.pages.users.form');
-})->name('users.show');
+})->name('users.edit');

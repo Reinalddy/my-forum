@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('user_id')->unsigned();
-            $table->bigIncrements('discussion_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('discussion_id')->unsigned();
             $table->text('answer');
             $table->timestamps();
             $table->softDeletes();
