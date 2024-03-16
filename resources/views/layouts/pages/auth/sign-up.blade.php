@@ -31,17 +31,23 @@
           <a href="#" class="nav-link mb-5 text-center">
             <img src="{{ url('assets/images/logo.png') }}" alt="Laracuss Logo" class="h-32px">
           </a>
+          @if (session('success'))
+              <div class="alert alert-success">
+                  {{ session('success') }}
+              </div>
+          @endif
           <div class="card mb-5">
-            <form action="#">
+            <form action="{{ route('auth.register') }}" method="POST" id="register_form">
+              @csrf
 
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="off" autofocus>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" autocomplete="off" autofocus>
               </div>
 
               <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" autocomplete="off" autofocus>
+                <input type="text" class="form-control" id="username" name="username" autocomplete="off" autofocus>
               </div>
 
               <div class="mb-3">
@@ -59,7 +65,7 @@
             </form>
 
             <div class="text-center">
-              Already Have an account ? <a href="#"><u>Log in</u></a>
+              Already Have an account ? <a href="{{ route('auth.login.show') }}"><u>Log in</u></a>
             </div>
 
           </div>

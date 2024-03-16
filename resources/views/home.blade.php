@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('body')
+{{-- @dd('home') --}}
     <section class="container hero">
         <div class="row align-items-center h-100">
             <div class="col-12 col-lg-6">

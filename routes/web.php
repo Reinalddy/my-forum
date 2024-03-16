@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +15,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
 
-Route::get('login', function () {
-    return view('layouts.pages.auth.login');
-})->name('auth.login.show');
+Route::get('/', [GuestController::class, 'showGuestForm'])->name('home');
 
-Route::get('sign-up', function() {
-    return view('layouts.pages.auth.sign-up');
-})->name('auth.sign-up.show');
+// Route::get('login', function () {
+//     return view('layouts.pages.auth.login');
+// })->name('auth.login.show');
+
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('auth.login.show');
+Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
+
+Route::get('/sign-up',[LoginController::class, 'showSignUpForm'])->name('auth.sign-up.show');
+Route::post('/register',[LoginController::class,'register'])->name('auth.register');
+// Route::get('/logout', [LoginController::class], 'logout')->name('auth.logout');
+Route::get('/logout', [LoginController::class, 'logout'])->name('auth.logout');
+
+// Route::get('sign-up', function() {
+//     return view('layouts.pages.auth.sign-up');
+// })->name('auth.sign-up.show');
 
 Route::get('discussions', function() {
     return view('layouts.pages.discussions.index');

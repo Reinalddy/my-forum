@@ -9,11 +9,21 @@
             <img class="h-32px" src="{{ url('assets/images/logo.png') }}" alt="Logo">
           </a>
 
-          <div class="card mb-5">  
-            <form action="">
+          <div class="card mb-5">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @elseif (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+            <form action="{{ route('auth.login') }}" method="POST">
+              @csrf
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com" autocomplete="off" autofocus>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" autocomplete="off" autofocus>
               </div>
 
               <div class="mb-3">
@@ -23,13 +33,13 @@
                   <span class="input-group-text bg-white border-start-0 pe-auto"><a href="javascript:;" id="password-toggle"><img src="{{ url('assets/images/eye-slash.png') }}" alt="password toogle" id="password-toggle-img"></a></span>
                 </div>
               </div>
+              <div class="mb-3 d-grid">
+                <button type="submit" class="btn btn-primary rounded-2">Login</button>
+              </div>
             </form>
-            <div class="mb-3 d-grid">
-              <button type="submit" class="btn btn-primary rounded-2">Login</button>
-            </div>
           </div>
           <div class="text-center">
-            Don't Have an account ? <a href="#" class="text-underline"><u>Sign Up</u></a>
+            Don't Have an account ? <a href="{{ route('auth.sign-up.show') }}" class="text-underline"><u>Sign Up</u></a>
           </div>
 
         </div>
